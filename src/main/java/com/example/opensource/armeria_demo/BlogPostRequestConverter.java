@@ -17,7 +17,8 @@ final class BlogPostRequestConverter implements RequestConverterFunction {
   private final AtomicInteger idGenerator = new AtomicInteger();
 
   @Override
-  public Object convertRequest(ServiceRequestContext ctx, AggregatedHttpRequest request,
+  public Object convertRequest(ServiceRequestContext ctx,
+                               AggregatedHttpRequest request,
                                Class<?> expectedResultType,
                                @Nullable ParameterizedType expectedParameterizedResultType)
           throws Exception {
@@ -28,6 +29,7 @@ final class BlogPostRequestConverter implements RequestConverterFunction {
       final String content = stringValue(jsonNode, "content");
       return new BlogPost(id, title, content);
     }
+
     return RequestConverterFunction.fallthrough();
   }
 
