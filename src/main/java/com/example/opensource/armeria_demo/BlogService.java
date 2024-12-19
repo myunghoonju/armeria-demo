@@ -23,7 +23,13 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 public class BlogService {
+
   private final Map<Integer, BlogPost> blogPosts = new ConcurrentHashMap<>();
+
+  @Get("/")
+  public HttpResponse index() {
+    return HttpResponse.of("welcome to armeria");
+  }
 
   @Post("/blogs")
   @RequestConverter(BlogPostRequestConverter.class)

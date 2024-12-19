@@ -1,6 +1,5 @@
 package com.example.opensource.armeria_demo;
 
-import com.linecorp.armeria.common.HttpResponse;
 import com.linecorp.armeria.server.Server;
 import com.linecorp.armeria.server.ServerBuilder;
 import com.linecorp.armeria.server.docs.DocService;
@@ -26,7 +25,6 @@ public class ArmeriaDemoApplication {
 
 		return sb.http(port)
 				 .annotatedService(new BlogService())
-				 .service("/", (ctx, req) -> HttpResponse.of("Hello Armeria!") )
 				 .serviceUnder("/docs", docService).build();
 	}
 }
