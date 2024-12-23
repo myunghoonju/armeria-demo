@@ -33,7 +33,7 @@ public class BlogService {
   }
 
   @Post("/blogs")
-  @RequestConverter(JacksonRequestConverterFunction.class) // BlogPostRequestConverter
+  @RequestConverter(BlogPostRequestConverter.class) // default: JacksonRequestConverterFunction.class
   public HttpResponse createBlogPost(BlogPost blogPost) {
     blogPosts.put(blogPost.getId(), blogPost);
     return HttpResponse.ofJson(blogPost);

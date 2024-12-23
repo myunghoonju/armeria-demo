@@ -23,10 +23,11 @@ final class BlogPostRequestConverter implements RequestConverterFunction {
                                @Nullable ParameterizedType expectedParameterizedResultType)
           throws Exception {
     if (expectedResultType == BlogPost.class) {
-      final JsonNode jsonNode = mapper.readTree(request.contentUtf8());
-      final int id = idGenerator.getAndIncrement();
-      final String title = stringValue(jsonNode, "title");
-      final String content = stringValue(jsonNode, "content");
+      JsonNode jsonNode = mapper.readTree(request.contentUtf8());
+      int id = idGenerator.getAndIncrement();
+      String title = stringValue(jsonNode, "title");
+      String content = stringValue(jsonNode, "content");
+
       return new BlogPost(id, title, content);
     }
 
