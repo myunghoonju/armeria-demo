@@ -63,9 +63,14 @@ public class BlogService {
     if (oldBlogPost == null) {
       return HttpResponse.of(HttpStatus.NOT_FOUND);
     }
-    final BlogPost newBlogPost = new BlogPost(id, blogPost.getTitle(), blogPost.getContent(),
-            oldBlogPost.getCreatedAt(), blogPost.getCreatedAt());
+
+    final BlogPost newBlogPost = new BlogPost(id,
+                                              blogPost.getTitle(),
+                                              blogPost.getContent(),
+                                              oldBlogPost.getCreatedAt(),
+                                              blogPost.getCreatedAt());
     blogPosts.put(id, newBlogPost);
+
     return HttpResponse.ofJson(newBlogPost);
   }
 
@@ -73,12 +78,12 @@ public class BlogService {
   @Delete("/blogs/:id")
   @ExceptionHandler(BadRequestExceptionHandler.class)
   public HttpResponse deleteBlogPost(@Param int id) {
-    final BlogPost removed = blogPosts.remove(id);
-    if (removed == null) {
+    if (blogPosts.remove(id) == null) {
       throw new IllegalArgumentException("The blog post does not exist. ID: " + id);
       // Or we can simply return a NOT_FOUND response.
       // return HttpResponse.of(HttpStatus.NOT_FOUND);
     }
+
     return HttpResponse.of(HttpStatus.NO_CONTENT);
   }
 }

@@ -14,13 +14,15 @@ public class BadRequestExceptionHandler implements ExceptionHandlerFunction {
 
   @Override
   public HttpResponse handleException(ServiceRequestContext ctx,
-                                      HttpRequest req, Throwable cause) {
+                                      HttpRequest req,
+                                      Throwable cause) {
     if (cause instanceof IllegalArgumentException) {
       final String message = cause.getMessage();
       final ObjectNode objectNode = mapper.createObjectNode();
       objectNode.put("error", message);
       return HttpResponse.ofJson(HttpStatus.BAD_REQUEST, objectNode);
     }
+
     return ExceptionHandlerFunction.fallthrough();
   }
 }
