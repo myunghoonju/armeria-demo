@@ -1,5 +1,6 @@
 package com.example.opensource.armeria_demo;
 
+import com.example.opensource.armeria_demo.rest.BlogService;
 import com.linecorp.armeria.server.Server;
 import com.linecorp.armeria.server.ServerBuilder;
 import com.linecorp.armeria.server.docs.DocService;

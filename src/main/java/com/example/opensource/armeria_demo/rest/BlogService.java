@@ -1,4 +1,4 @@
-package com.example.opensource.armeria_demo;
+package com.example.opensource.armeria_demo.rest;
 
 import com.linecorp.armeria.common.HttpResponse;
 import com.linecorp.armeria.common.HttpStatus;

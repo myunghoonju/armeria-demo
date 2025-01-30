@@ -1,5 +1,6 @@
 package com.example.opensource.armeria_demo;
 
+import com.example.opensource.armeria_demo.rest.BlogService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.linecorp.armeria.client.WebClient;
 import com.linecorp.armeria.common.AggregatedHttpResponse;

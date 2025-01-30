@@ -1,4 +1,4 @@
-package com.example.opensource.armeria_demo;
+package com.example.opensource.armeria_demo.rest;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

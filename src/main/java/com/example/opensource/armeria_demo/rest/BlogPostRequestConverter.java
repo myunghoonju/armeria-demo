@@ -1,4 +1,4 @@
-package com.example.opensource.armeria_demo;
+package com.example.opensource.armeria_demo.rest;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
